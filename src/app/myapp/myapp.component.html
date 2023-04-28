@@ -1,0 +1,17 @@
+<div class="app-container">
+    <div class="title-container" [ngStyle]="{'color': baseColor}">
+        <h1 class="mytitle">
+            NFT Collection
+        </h1>
+    </div>
+    <div class="cards-container">
+       <app-card 
+        *ngFor="let element of infoArray"
+        [slide]="element" 
+        (emitColor)="changeColor($event)"
+        [myColor]= "baseColor"
+        (emitSelected)="changeSelected($event)"
+        [selectedID] = "selectedCard"
+       />
+    </div>
+</div>

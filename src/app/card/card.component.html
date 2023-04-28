@@ -1,0 +1,36 @@
+<div class="card-container">
+  <!-- <div *ngIf="selectedID === slide.id; else elseBlock"> -->
+  <div
+    *ngIf="selectedID === slide.id; else elseBlock"
+    class="card"
+    [ngStyle]="{ 'border-color': thecolor, 'border-width': 'medium' }"
+  >
+    <div class="card-title">{{ slide.title }}-{{ slide.id }}</div>
+    <div class="card-description">
+      {{ slide.description }}
+    </div>
+    <button
+      class="card-button"
+      [ngStyle]="{ 'background-color': thecolor }"
+      (click)="updateCardColor()"
+    >
+      Change
+    </button>
+  </div>
+  <!-- </div> -->
+  <ng-template #elseBlock>
+    <div class="card" [ngStyle]="{ 'border-color': 'none' }">
+        <div class="card-title">{{ slide.title }}-{{ slide.id }}</div>
+        <div class="card-description">
+          {{ slide.description }}
+        </div>
+      <button
+        class="card-button"
+        [ngStyle]="{ 'background-color': thecolor }"
+        (click)="updateCardColor()"
+      >
+        Change
+      </button>
+    </div>
+  </ng-template>
+</div>
